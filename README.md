@@ -14,76 +14,60 @@ NVIDIA的GPU是训练深度学习模型的不二之选，且已形成了庞大�
 
 ### Table of Contents
 
-* [Hello AI World](#hello-ai-world)
-* [Two Days to a Demo](#two-days-to-a-demo-digits)
+* [内容目录](#内容目录)
 * [API Reference](#api-reference)
-* [Code Examples](#code-examples)
-* [Pre-Trained Models](#pre-trained-models)
-* [System Requirements](#recommended-system-requirements)
-* [Extra Resources](#extra-resources)
+* [代码示例](#代码示例)
+* [预训练模型](#预训练模型)
+* [系统要求](#推荐系统要求)
+* [其他资源](#其他资源)
 
 > &gt; &nbsp; Jetson Nano 开发套件和JetPack 4.2.2均支持 <br/>
 > &gt; &nbsp; 参见技术blog，包括基准测试benchmarks, [`Jetson Nano Brings AI Computing to Everyone`](https://devblogs.nvidia.com/jetson-nano-ai-computing/). <br/>
 > &gt; &nbsp; 板上已支持Python 和PyTorch片上训练!
 
-## Hello AI World
+## 内容目录
 
-这些内容可直接在Jetson上运行，包括用TensorRT推理和用PyTorch进行迁移学习。可以用C++ 或者 Python编写自己的图像分类、目标检测等应用，带有实时摄像头的案例。
-
-* [用JetPack刷Jetson]()
-* [编译项目源码](docs/building-repo-2.md)
-* [用ImageNet进行图像分类](docs/imagenet-console-2.md)
-	* [用Python编写自定义的图像分类应用](docs/imagenet-example-python-2.md)
-	* [用C++编写自定义的图像分类应用](docs/imagenet-example-2.md)
-	* [在实时摄像头输入上进行图像识别](docs/imagenet-camera-2.md)
-* [用DetectNet进行物体检测定位](docs/detectnet-console-2.md)
-	* [在实时摄像头输入上进行物体检测](docs/detectnet-camera-2.md)
-	* [编写自定义的物体检测应用](docs/detectnet-example-2.md)
-* [用SegNet进行语义分割](docs/segnet-console-2.md)
-	* [在实时摄像头输入上进行语义分割](docs/segnet-camera-2.md)
-* [用PyTorch进行迁移学习](docs/pytorch-transfer-learning.md)
-	* [在Cat/Dog数据集上进行重训练](docs/pytorch-cat-dog.md)
-	* [在PlantCLEF数据集上进行重训练](docs/pytorch-plants.md)
-	* [构建自己的数据集](docs/pytorch-collect.md)
-
-## Two Days to a Demo (DIGITS)
-
-包括在云端或本地训练模型，在Jetson上用TensorRT进行推理。
+包括在云端或本地训练模型，在Jetson上用TensorRT进行推理，包括用TensorRT推理和用PyTorch进行迁移学习。可以用C++ 或者 Python编写自己的图像分类、目标检测等应用，带有实时摄像头的案例。
 
 * [DIGITS 工作流程](docs/digits-workflow.md) 
-* [DIGITS 系统配置](docs/digits-setup.md  docs/jetpack-setup-2.md)
-* [用JetPack刷Jetson](docs/jetpack-setup.md)
+* DIGITS 系统配置
+	* [配置系统及在docker中安装DIGITS](docs/digits-setup.md)
+	* [配置系统及在本机安装DIGITS](docs/digits-native.md)
+* 用JetPack刷Jetson
+	* [JetPack-L4T刷机](docs/jetpack-setup.md)
+	* [NVIDIA SDK Manager刷机](docs/jetpack-setup-2.md)
 * [编译项目源码](docs/building-repo.md)
-* [用ImageNet进行图像分类](docs/imagenet-console.md)
-	* [编写自定义的图像分类应用](docs/imagenet-example.md)
+* [用ImageNet进行图像分类](docs/imagenet-console-2.md)
+	* [用C++编写自定义的图像分类应用](docs/imagenet-example-2.md)
+	* [用Python编写自定义的图像分类应用](docs/imagenet-example-python-2.md)
 	* [在实时摄像头输入上进行图像识别](docs/imagenet-camera.md)
 	* [用DIGITS重训练网络](docs/imagenet-training.md)
 	* [自定义目标类别](docs/imagenet-training.md#customizing-the-object-classes)
 	* [在Jetson上部署模型快照](docs/imagenet-snapshot.md)
 	* [在Jetson上加载自定义模型](docs/imagenet-custom.md)
-* [Locating Objects with DetectNet](docs/detectnet-training.md)
-	* [Detection Data Formatting in DIGITS](docs/detectnet-training.md#detection-data-formatting-in-digits)
-	* [Downloading the Detection Dataset](docs/detectnet-training.md#downloading-the-detection-dataset)
-	* [Importing the Detection Dataset into DIGITS](docs/detectnet-training.md#importing-the-detection-dataset-into-digits)
-	* [Creating DetectNet Model with DIGITS](docs/detectnet-training.md#creating-detectnet-model-with-digits)
-	* [Testing DetectNet Model Inference in DIGITS](docs/detectnet-training.md#testing-detectnet-model-inference-in-digits)
-	* [Downloading the Detection Model to Jetson](docs/detectnet-snapshot.md)
-	* [DetectNet Patches for TensorRT](docs/detectnet-snapshot.md#detectnet-patches-for-tensorrt)
-	* [Detecting Objects from the Command Line](docs/detectnet-console.md)
-	* [Multi-class Object Detection Models](docs/detectnet-console.md#multi-class-object-detection-models)
-	* [Running the Live Camera Detection Demo on Jetson](docs/detectnet-camera.md)
-* [Semantic Segmentation with SegNet](docs/segnet-dataset.md)
-	* [Downloading Aerial Drone Dataset](docs/segnet-dataset.md#downloading-aerial-drone-dataset)
-	* [Importing the Aerial Dataset into DIGITS](docs/segnet-dataset.md#importing-the-aerial-dataset-into-digits)
+* [用DetectNet进行物体检测定位](docs/detectnet-training.md)
+* [用DetectNet进行物体检测定位](docs/detectnet-console-2.md)
+	* [在DIGITS中训练目标检测模型](docs/detectnet-training.md)
+	* [将模型部署到Jetson及其修改](docs/detectnet-snapshot.md)
+	* [（多）目标检测模型运行](docs/detectnet-console.md)
+	* [在实时摄像头输入上进行物体检测](docs/detectnet-camera-2.md)
+	* [编写自定义的物体检测应用](docs/detectnet-example-2.md)
+* [用SegNet进行语义分割](docs/segnet-dataset.md)
+* [用SegNet进行语义分割](docs/segnet-console-2.md)
+	* [Aerial Drone Dataset数据集处理](docs/segnet-dataset.md)
 	* [Generating Pretrained FCN-Alexnet](docs/segnet-pretrained.md)
-	* [Training FCN-Alexnet with DIGITS](docs/segnet-training.md)
-	* [Testing Inference Model in DIGITS](docs/segnet-training.md#testing-inference-model-in-digits)
+	* [在DIGITS中训练FCN-Alexnet](docs/segnet-training.md)
 	* [FCN-Alexnet Patches for TensorRT](docs/segnet-patches.md)
-	* [Running Segmentation Models on Jetson](docs/segnet-console.md)
-
+	* [在Jetson上运行模型](docs/segnet-console.md)
+	* [在实时摄像头输入上进行语义分割](docs/segnet-camera-2.md)	
+* [用PyTorch进行迁移学习](docs/pytorch-transfer-learning.md)
+	* [在Cat/Dog数据集上进行重训练](docs/pytorch-cat-dog.md)
+	* [在PlantCLEF数据集上进行重训练](docs/pytorch-plants.md)
+	* [构建自己的数据集](docs/pytorch-collect.md)
+	
 ## API Reference
 
-Below are links to reference documentation for the [C++](https://rawgit.com/dusty-nv/jetson-inference/python/docs/html/index.html) and [Python](https://rawgit.com/dusty-nv/jetson-inference/python/docs/html/python/jetson.html) libraries from the repo:
+[C++](https://rawgit.com/dusty-nv/jetson-inference/python/docs/html/index.html) 和 [Python](https://rawgit.com/dusty-nv/jetson-inference/python/docs/html/python/jetson.html)库的参考文档。
 
 #### jetson-inference
 
@@ -98,16 +82,16 @@ Below are links to reference documentation for the [C++](https://rawgit.com/dust
 * [C++](https://rawgit.com/dusty-nv/jetson-inference/python/docs/html/group__util.html)
 * [Python](https://rawgit.com/dusty-nv/jetson-inference/python/docs/html/python/jetson.utils.html)
 
-These libraries are able to be used in external projects by linking to `libjetson-inference` and `libjetson-utils`.
+在外部工程中可以通过链接`libjetson-inference` and `libjetson-utils`来使用这些库。
 
-## Code Examples
+## 代码示例
 
-Introductory code walkthroughs of using the library are covered during these steps of the Hello AI World tutorial:
+代码库的使用示例可见：
 
 * [Coding Your Own Image Recognition Program (Python)](docs/imagenet-example-python-2.md)
 * [Coding Your Own Image Recognition Program (C++)](docs/imagenet-example-2.md)
 
-Additional C++ and Python samples for running the networks on static images and live camera streams can be found here:
+更多C++ and Python的示例可见： 
 
 |                   | Images              | Camera              |
 |-------------------|---------------------|---------------------|
@@ -120,17 +104,17 @@ Additional C++ and Python samples for running the networks on static images and 
 | &nbsp;&nbsp;&nbsp;Object Detection  | [`detectnet-console.py`](python/examples/detectnet-console.py) | [`detectnet-camera.py`](python/examples/detectnet-camera.py) |
 | &nbsp;&nbsp;&nbsp;Segmentation      | [`segnet-console.py`](python/examples/segnet-console.py) | [`segnet-camera.py`](python/examples/segnet-camera.py) |
 
-> **note**:  for working with numpy arrays, see [`cuda-from-numpy.py`](https://github.com/dusty-nv/jetson-utils/blob/master/python/examples/cuda-from-numpy.py) and [`cuda-to-numpy.py`](https://github.com/dusty-nv/jetson-utils/blob/master/python/examples/cuda-to-numpy.py)
+> **注意**:  涉及到使用numpy arrays, 可参考 [`cuda-from-numpy.py`](https://github.com/dusty-nv/jetson-utils/blob/master/python/examples/cuda-from-numpy.py) 和 [`cuda-to-numpy.py`](https://github.com/dusty-nv/jetson-utils/blob/master/python/examples/cuda-to-numpy.py)
 
-These examples will automatically be compiled while [Building the Project from Source](docs/building-repo-2.md), and are able to run the pre-trained models listed below in addition to custom models provided by the user.  Launch each example with `--help` for usage info.
+这些示例在These examples will automatically be compiled while [编译项目源码](docs/building-repo-2.md)时会被自动编译, 可以直接运行下面列出的预训练模型以及我们自定义的模型，在运行时输入`--help`可以输出使用说明信息。
 
-## Pre-Trained Models
+## 预训练模型
 
-The project comes with a number of pre-trained models that are available through the [**Model Downloader**](docs/building-repo-2.md#downloading-models) tool:
+包含很多预训练模型，可以通过[**Model Downloader**](docs/building-repo-2.md#downloading-models) 下载。
 
-#### Image Recognition
+#### 图像识别
 
-| Network       | CLI argument   | NetworkType enum |
+|   网络        | CLI argument   | NetworkType enum |
 | --------------|----------------|------------------|
 | AlexNet       | `alexnet`      | `ALEXNET`        |
 | GoogleNet     | `googlenet`    | `GOOGLENET`      |
@@ -143,9 +127,9 @@ The project comes with a number of pre-trained models that are available through
 | VGG-19        | `vgg-19`       | `VGG-19`         |
 | Inception-v4  | `inception-v4` | `INCEPTION_V4`   |
 
-#### Object Detection
+#### 目标检测
 
-| Network                 | CLI argument       | NetworkType enum   | Object classes       |
+| 网络                    | CLI argument       | 网络类型枚举        | Object classes       |
 | ------------------------|--------------------|--------------------|----------------------|
 | SSD-Mobilenet-v1        | `ssd-mobilenet-v1` | `SSD_MOBILENET_V1` | 91 ([COCO classes](data/networks/ssd_coco_labels.txt)) |
 | SSD-Mobilenet-v2        | `ssd-mobilenet-v2` | `SSD_MOBILENET_V2` | 91 ([COCO classes](data/networks/ssd_coco_labels.txt)) |
@@ -158,9 +142,9 @@ The project comes with a number of pre-trained models that are available through
 | multiped-500            | `multiped`         | `PEDNET_MULTI`     | pedestrians, luggage |
 | facenet-120             | `facenet`          | `FACENET`          | faces                |
 
-#### Semantic Segmentation
+#### 语义分割
 
-| Dataset      | Resolution | CLI Argument | Accuracy | Jetson Nano | Jetson Xavier |
+| 数据集      | 分辨率 | CLI Argument | Accuracy | Jetson Nano | Jetson Xavier |
 |:------------:|:----------:|--------------|:--------:|:-----------:|:-------------:|
 | [Cityscapes](https://www.cityscapes-dataset.com/) | 512x256 | `fcn-resnet18-cityscapes-512x256` | 83.3% | 48 FPS | 480 FPS |
 | [Cityscapes](https://www.cityscapes-dataset.com/) | 1024x512 | `fcn-resnet18-cityscapes-1024x512` | 87.3% | 12 FPS | 175 FPS |
@@ -174,9 +158,9 @@ The project comes with a number of pre-trained models that are available through
 | [SUN RGB-D](http://rgbd.cs.princeton.edu/) | 512x400 | `fcn-resnet18-sun-512x400` | 64.3% | 28 FPS | 340 FPS |
 | [SUN RGB-D](http://rgbd.cs.princeton.edu/) | 640x512 | `fcn-resnet18-sun-640x512` | 65.1% | 17 FPS | 224 FPS |
 
-* If the resolution is omitted from the CLI argument, the lowest resolution model is loaded
-* Accuracy indicates the pixel classification accuracy across the model's validation dataset
-* Performance is measured for GPU FP16 mode with JetPack 4.2.1, `nvpmodel 0` (MAX-N)
+* 如果CLI argument没有输入分辨率, 默认使用最低分辨率。
+* 精度Accuracy表示模型验证数据集上的像素分类精度。
+* 性能是在GPU FP16 mode with JetPack 4.2.1, `nvpmodel 0` (MAX-N)模式下测试得到的。
 
 <details>
 <summary>Legacy Segmentation Models</summary>
@@ -193,267 +177,24 @@ The project comes with a number of pre-trained models that are available through
 
 </details>
 
-## Recommended System Requirements
+## 推荐系统要求
 
-**Training GPU:**  Maxwell, Pascal, Volta, or Turing-based GPU (ideally with at least 6GB video memory)  
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;optionally, AWS P2/P3 instance or Microsoft Azure N-series  
+**训练时所需GPU:**  Maxwell, Pascal, Volta, 或者 Turing体系的GPU (理想情况下最少6GB video memory)  
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;可以选择AWS P2/P3 instance 或者 Microsoft Azure N-series  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Ubuntu 16.04/18.04 x86_64
 
-**Deployment:**    &nbsp;&nbsp;Jetson Nano Developer Kit with JetPack 4.2 or newer (Ubuntu 18.04 aarch64).  
+**部署:**    &nbsp;&nbsp;Jetson Nano Developer Kit with JetPack 4.2 or newer (Ubuntu 18.04 aarch64).  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jetson Xavier Developer Kit with JetPack 4.0 or newer (Ubuntu 18.04 aarch64)  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jetson TX2 Developer Kit with JetPack 3.0 or newer (Ubuntu 16.04 aarch64).  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Jetson TX1 Developer Kit with JetPack 2.3 or newer (Ubuntu 16.04 aarch64).
 
-Note that TensorRT samples from the repo are intended for deployment onboard Jetson, however when cuDNN and TensorRT have been installed on the host side, the TensorRT samples in the repo can be compiled for PC.
+这里的tensorRT示例是为部署在Jetson上的，但若通用计算机上安装了cuDNN and TensorRT，这些tensorRT示例可以编译在计算机上。
 
-
-## Extra Resources
-
-In this area, links and resources for deep learning are listed:
+## 其他资源
 
 * [ros_deep_learning](http://www.github.com/dusty-nv/ros_deep_learning) - TensorRT inference ROS nodes
 * [NVIDIA AI IoT](https://github.com/NVIDIA-AI-IOT) - NVIDIA Jetson GitHub repositories
 * [Jetson eLinux Wiki](https://www.eLinux.org/Jetson) - Jetson eLinux Wiki
-
-## Legacy Links
-
-<details open>
-<summary>Since the documentation has been re-organized, below are links mapping the previous content to the new locations.</summary>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(click on the arrow above to hide this section)
-
-### DIGITS Workflow
-
-See [DIGITS Workflow](docs/digits-workflow.md)
-
-### System Setup
-
-See [DIGITS Setup](docs/digits-setup.md)
-
-#### Running JetPack on the Host
-
-See [JetPack Setup](docs/jetpack-setup.md)
-
-#### Installing Ubuntu on the Host
-
-See [DIGITS Setup](docs/digits-setup.md#installing-ubuntu-on-the-host)
-
-#### Setting up host training PC with NGC container	
-
-See [DIGITS Setup](docs/digits-setup.md#setting-up-host-training-pc-with-ngc-container)
-
-#### Installing the NVIDIA driver
-
-See [DIGITS Setup](docs/digits-setup.md#installing-the-nvidia-driver)
-
-#### Installing Docker
-
-See [DIGITS Setup](docs/digits-setup.md#installing-docker)
-
-#### NGC Sign-up 
-
-See [DIGITS Setup](docs/digits-setup.md#ngc-sign-up)
-
-#### Setting up data and job directories
-
-See [DIGITS Setup](docs/digits-setup.md#setting-up-data-and-job-directories)
-
-#### Starting DIGITS container
-
-See [DIGITS Setup](docs/digits-setup.md#starting-digits-container)
-
-#### Natively setting up DIGITS on the Host 
-
-See [DIGITS Native Setup](docs/digits-native.md)
-
-#### Installing NVIDIA Driver on the Host
-
-See [DIGITS Native Setup](docs/digits-native.md#installing-nvidia-driver-on-the-host)
-
-#### Installing cuDNN on the Host
-
-See [DIGITS Native Setup](docs/digits-native.md#installing-cudnn-on-the-host)
-
-#### Installing NVcaffe on the Host
-
-See [DIGITS Native Setup](docs/digits-native.md#installing-nvcaffe-on-the-host)
-
-#### Installing DIGITS on the Host
-
-See [DIGITS Native Setup](docs/digits-native.md#installing-digits-on-the-host)
-
-#### Starting the DIGITS Server
-
-See [DIGITS Native Setup](docs/digits-native.md#starting-the-digits-server)
-
-### Building from Source on Jetson
-
-See [Building the Repo from Source](docs/building-repo.md)
-      
-#### Cloning the Repo
-
-See [Building the Repo from Source](docs/building-repo.md#cloning-the-repo)
-
-#### Configuring with CMake
-
-See [Building the Repo from Source](docs/building-repo.md#configuring-with-cmake)
-
-#### Compiling the Project
-
-See [Building the Repo from Source](docs/building-repo.md#compiling-the-project)
-
-#### Digging Into the Code
-
-See [Building the Repo from Source](docs/building-repo.md#digging-into-the-code)
-
-### Classifying Images with ImageNet
-
-See [Classifying Images with ImageNet](docs/imagenet-console.md)
-
-#### Using the Console Program on Jetson
-
-See [Classifying Images with ImageNet](docs/imagenet-console.md#using-the-console-program-on-jetson)
-
-### Running the Live Camera Recognition Demo
-
-See [Running the Live Camera Recognition Demo](docs/imagenet-camera.md)
-
-### Re-training the Network with DIGITS
-
-See [Re-Training the Recognition Network](docs/imagenet-training.md)
-
-#### Downloading Image Recognition Dataset
-
-See [Re-Training the Recognition Network](docs/imagenet-training.md#downloading-image-recognition-dataset)
-
-#### Customizing the Object Classes
-
-See [Re-Training the Recognition Network](docs/imagenet-training.md#customizing-the-object-classes)
-
-#### Importing Classification Dataset into DIGITS
-
-See [Re-Training the Recognition Network](docs/imagenet-training.md#importing-classification-dataset-into-digits)
-
-#### Creating Image Classification Model with DIGITS
-
-See [Re-Training the Recognition Network](docs/imagenet-training.md#creating-image-classification-model-with-digits)
-
-#### Testing Classification Model in DIGITS
-
-See [Re-Training the Recognition Network](docs/imagenet-training.md#testing-classification-model-in-digits)
-
-#### Downloading Model Snapshot to Jetson
-
-See [Downloading Model Snapshots to Jetson](docs/imagenet-snapshot.md)
-
-### Loading Custom Models on Jetson
-
-See [Loading Custom Models on Jetson](docs/imagenet-custom.md)
-
-### Locating Object Coordinates using DetectNet
-
-See [Locating Object Coordinates using DetectNet](docs/detectnet-training.md)
-
-#### Detection Data Formatting in DIGITS
-
-See [Locating Object Coordinates using DetectNet](docs/detectnet-training.md#detection-data-formatting-in-digits)
-
-#### Downloading the Detection Dataset
-
-See [Locating Object Coordinates using DetectNet](docs/detectnet-training.md#downloading-the-detection-dataset)
-
-#### Importing the Detection Dataset into DIGITS
-
-See [Locating Object Coordinates using DetectNet](docs/detectnet-training.md#importing-the-detection-dataset-into-digits)
-
-#### Creating DetectNet Model with DIGITS
-
-See [Locating Object Coordinates using DetectNet](docs/detectnet-training.md#creating-detectnet-model-with-digits)
-
-#### Selecting DetectNet Batch Size
-
-See [Locating Object Coordinates using DetectNet](docs/detectnet-training.md#selecting-detectnet-batch-size)
-
-#### Specifying the DetectNet Prototxt 
-
-See [Locating Object Coordinates using DetectNet](docs/detectnet-training.md#specifying-the-detectnet-prototxt)
-
-#### Training the Model with Pretrained Googlenet
-
-See [Locating Object Coordinates using DetectNet](docs/detectnet-training.md#training-the-model-with-pretrained-googlenet)
-
-#### Testing DetectNet Model Inference in DIGITS
-
-See [Locating Object Coordinates using DetectNet](docs/detectnet-training.md#testing-detectnet-model-inference-in-digits)
-
-#### Downloading the Model Snapshot to Jetson
-
-See [Downloading the Detection Model to Jetson](docs/detectnet-snapshot.md)
-
-#### DetectNet Patches for TensorRT
-
-See [Downloading the Detection Model to Jetson](docs/detectnet-snapshot.md#detectnet-patches-for-tensorrt)
-
-### Processing Images from the Command Line on Jetson
-
-See [Detecting Objects from the Command Line](docs/detectnet-console.md)
-
-#### Launching With a Pretrained Model
-
-See [Detecting Objects from the Command Line](docs/detectnet-console.md#launching-with-a-pretrained-model)
-
-#### Pretrained DetectNet Models Available
-
-See [Detecting Objects from the Command Line](docs/detectnet-console.md#pretrained-detectnet-models-available)
-
-#### Running Other MS-COCO Models on Jetson
-
-See [Detecting Objects from the Command Line](docs/detectnet-console.md#running-other-ms-coco-models-on-jetson)
-
-#### Running Pedestrian Models on Jetson
-
-See [Detecting Objects from the Command Line](docs/detectnet-console.md#running-pedestrian-models-on-jetson)
-
-#### Multi-class Object Detection Models
-
-See [Detecting Objects from the Command Line](docs/detectnet-console.md#multi-class-object-detection-models)
-
-### Running the Live Camera Detection Demo on Jetson
-
-See [Running the Live Camera Detection Demo](docs/detectnet-camera.md)
-
-### Image Segmentation with SegNet
-
-See [Semantic Segmentation with SegNet](docs/segnet-dataset.md)
-
-#### Downloading Aerial Drone Dataset
-
-See [Semantic Segmentation with SegNet](docs/segnet-dataset.md#downloading-aerial-drone-dataset)
-
-#### Importing the Aerial Dataset into DIGITS
-
-See [Semantic Segmentation with SegNet](docs/segnet-dataset.md#importing-the-aerial-dataset-into-digits)
-
-#### Generating Pretrained FCN-Alexnet
-
-See [Generating Pretrained FCN-Alexnet](docs/segnet-pretrained.md)
-
-### Training FCN-Alexnet with DIGITS
-
-See [Training FCN-Alexnet with DIGITS](docs/segnet-training.md)
-
-#### Testing Inference Model in DIGITS
-
-See [Training FCN-Alexnet with DIGITS](docs/segnet-training.md#testing-inference-model-in-digits)
-
-#### FCN-Alexnet Patches for TensorRT
-
-See [FCN-Alexnet Patches for TensorRT](docs/segnet-patches.md)
-
-### Running Segmentation Models on Jetson
-
-See [Running Segmentation Models on Jetson](docs/segnet-console.md)
-
-</details>
 
 ##
 <p align="center"><sup>© 2016-2019 NVIDIA | </sup><a href="#deploying-deep-learning"><sup>Table of Contents</sup></a></p>
