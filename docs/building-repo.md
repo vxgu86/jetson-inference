@@ -1,11 +1,7 @@
-<img src="https://github.com/dusty-nv/jetson-inference/raw/master/docs/images/deep-vision-header.jpg">
-<p align="right"><sup><a href="jetpack-setup.md">Back</a> | <a href="imagenet-console.md">Next</a> | </sup><a href="../README.md#two-days-to-a-demo-digits"><sup>Contents</sup></a>
-<br/>
-<sup>System Setup</sup></p>   
 
 # Building the Project from Source
 
-Provided with the repo is a library of TensorRT-accelerated deep learning networks for image recognition, object detection with localization (i.e. bounding boxes), and semantic segmentation.  This inferencing library (`libjetson-inference`) is intended to be built & run on the Jetson, and includes support for both C++ and Python.  
+项目中是TensorRT加速的深度学习网络库，可以用来进行图像识别、物体检测定位（边界框进行框定）和语义分割。推理库 (`libjetson-inference`) 是在Jetson平台上编译和执行，并且可以使用C++ 和 Python进行调用。  
 
 Various pre-trained DNN models are automatically downloaded to get you up and running quickly.  It's also setup to accept customized models that you may have trained yourself, including support for Caffe, TensorFlow UFF, and ONNX.
 
