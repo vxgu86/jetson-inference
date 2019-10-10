@@ -10,9 +10,6 @@ NVIDIA的GPU是训练深度学习模型的不二之选，且已形成了庞大�
 
 <img src="https://github.com/dusty-nv/jetson-inference/raw/master/docs/images/deep-vision-primitives.png" width="800">
 
-基准测试数据benchmarks, [`Jetson Nano Brings AI Computing to Everyone`](https://devblogs.nvidia.com/jetson-nano-ai-computing/)
-# Deploying Deep Learning
-
 这本书的使用上可以按照需求来学习不同的模块，既包括用DIGITS进行模型的训练，也有Jetson平台上开展的推理和板上迁移学习（transfer learning）。
 
 ### Table of Contents
@@ -25,39 +22,36 @@ NVIDIA的GPU是训练深度学习模型的不二之选，且已形成了庞大�
 * [System Requirements](#recommended-system-requirements)
 * [Extra Resources](#extra-resources)
 
-> &gt; &nbsp; Jetson Nano Developer Kit and JetPack 4.2.2 is now supported in the repo. <br/>
-> &gt; &nbsp; See our latest technical blog including benchmarks, [`Jetson Nano Brings AI Computing to Everyone`](https://devblogs.nvidia.com/jetson-nano-ai-computing/). <br/>
-> &gt; &nbsp; Hello AI World now supports Python and onboard training with PyTorch!
+> &gt; &nbsp; Jetson Nano 开发套件和JetPack 4.2.2均支持 <br/>
+> &gt; &nbsp; 参见技术blog，包括基准测试benchmarks, [`Jetson Nano Brings AI Computing to Everyone`](https://devblogs.nvidia.com/jetson-nano-ai-computing/). <br/>
+> &gt; &nbsp; 板上已支持Python 和PyTorch片上训练!
 
 ## Hello AI World
 
-Hello AI World can be run completely onboard your Jetson, including inferencing with TensorRT and transfer learning with PyTorch.  The inference portion of Hello AI World - which includes coding your own image classification application for C++ or Python, object detection, and live camera demos - can be run on your Jetson in roughly two hours or less, while transfer learning is best left to leave running overnight.
+这些内容可直接在Jetson上运行，包括用TensorRT推理和用PyTorch进行迁移学习。可以用C++ 或者 Python编写自己的图像分类、目标检测等应用，带有实时摄像头的案例。
 
-* [Setting up Jetson with JetPack](docs/jetpack-setup-2.md)
-* [Building the Project from Source](docs/building-repo-2.md)
-* [Classifying Images with ImageNet](docs/imagenet-console-2.md)
-	* [Using the Console Program on Jetson](docs/imagenet-console-2.md#using-the-console-program-on-jetson)
-	* [Coding Your Own Image Recognition Program (Python)](docs/imagenet-example-python-2.md)
-	* [Coding Your Own Image Recognition Program (C++)](docs/imagenet-example-2.md)
-	* [Running the Live Camera Recognition Demo](docs/imagenet-camera-2.md)
-* [Locating Objects with DetectNet](docs/detectnet-console-2.md)
-	* [Detecting Objects from the Command Line](docs/detectnet-console-2.md#detecting-objects-from-the-command-line)
-	* [Running the Live Camera Detection Demo](docs/detectnet-camera-2.md)
-	* [Coding Your Own Object Detection Program](docs/detectnet-example-2.md)
-* [Semantic Segmentation with SegNet](docs/segnet-console-2.md)
-	* [Segmenting Images from the Command Line](docs/segnet-console-2.md#segmenting-images-from-the-command-line)
-	* [Running the Live Camera Segmentation Demo](docs/segnet-camera-2.md)
-* [Transfer Learning with PyTorch](docs/pytorch-transfer-learning.md)
-	* [Re-training on the Cat/Dog Dataset](docs/pytorch-cat-dog.md)
-	* [Re-training on the PlantCLEF Dataset](docs/pytorch-plants.md)
-	* [Collecting your own Datasets](docs/pytorch-collect.md)
+* [用JetPack刷Jetson](docs/jetpack-setup-2.md)
+* [编译项目源码](docs/building-repo-2.md)
+* [用ImageNet进行图像分类](docs/imagenet-console-2.md)
+	* [用Python编写自定义的图像分类应用](docs/imagenet-example-python-2.md)
+	* [用C++编写自定义的图像分类应用](docs/imagenet-example-2.md)
+	* [在实时摄像头输入上进行图像识别](docs/imagenet-camera-2.md)
+* [用DetectNet进行物体检测定位](docs/detectnet-console-2.md)
+	* [在实时摄像头输入上进行物体检测](docs/detectnet-camera-2.md)
+	* [编写自定义的物体检测应用](docs/detectnet-example-2.md)
+* [用SegNet进行语义分割](docs/segnet-console-2.md)
+	* [在实时摄像头输入上进行语义分割](docs/segnet-camera-2.md)
+* [用PyTorch进行迁移学习](docs/pytorch-transfer-learning.md)
+	* [在Cat/Dog数据集上进行重训练](docs/pytorch-cat-dog.md)
+	* [在PlantCLEF数据集上进行重训练](docs/pytorch-plants.md)
+	* [构建自己的数据集](docs/pytorch-collect.md)
 
 ## Two Days to a Demo (DIGITS)
 
-The full tutorial includes training in the cloud or PC, and inference on the Jetson with TensorRT, and can take roughly two days or more depending on system setup, downloading the datasets, and the training speed of your GPU.
+包括在云端或本地训练模型，在Jetson上用TensorRT进行推理。
 
-* [DIGITS Workflow](docs/digits-workflow.md) 
-* [DIGITS System Setup](docs/digits-setup.md)
+* [DIGITS 工作流程](docs/digits-workflow.md) 
+* [DIGITS 系统配置](docs/digits-setup.md)
 * [Setting up Jetson with JetPack](docs/jetpack-setup.md)
 * [Building the Project from Source](docs/building-repo.md)
 * [Classifying Images with ImageNet](docs/imagenet-console.md)
@@ -482,3 +476,5 @@ classification
 detection
 
 语义分割 Semantic Segmentation
+
+transfer learning
