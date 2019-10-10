@@ -1,17 +1,19 @@
 <img src="https://github.com/dusty-nv/jetson-inference/raw/master/docs/images/deep-vision-header.jpg">
 
-# Deploying Deep Learning
-Welcome to our instructional guide for inference and realtime [DNN vision](#api-reference) library for NVIDIA **[Jetson Nano/TX1/TX2/Xavier](http://www.nvidia.com/object/embedded-systems.html)**.
+主要用到了英伟达NVIDIA的 **[DIGITS](https://github.com/NVIDIA/DIGITS)** 和 **[Jetson Xavier/TX1/TX2/nano](http://www.nvidia.com/object/embedded-systems.html)** ，DIGITS用于以可视化交互的方式在云或工作站上的标注数据集上训练网络模型，Jetson Xavier/TX1/TX2运行推理（Inference），是嵌入式的推理部署端。
 
-This repo uses NVIDIA **[TensorRT](https://developer.nvidia.com/tensorrt)** for efficiently deploying neural networks onto the embedded Jetson platform, improving performance and power efficiency using graph optimizations, kernel fusion, and FP16/INT8 precision.
+# 深度学习的部署
 
-Vision primitives, such as [`imageNet`](c/imageNet.h) for image recognition, [`detectNet`](c/detectNet.h) for object localization, and [`segNet`](c/segNet.h) for semantic segmentation, inherit from the shared [`tensorNet`](c/tensorNet.h) object.  Examples are provided for streaming from live camera feed and processing images.  See the **[API Reference](#api-reference)** section for detailed reference documentation of the C++ and Python libraries. 
+NVIDIA的GPU是训练深度学习模型的不二之选，且已形成了庞大的生态环境。主要针对NVIDIA嵌入式平台 **[Jetson Nano/TX1/TX2/Xavier](http://www.nvidia.com/object/embedded-systems.html)的推理和实时[DNN 视觉](#api-reference) 库**。 用 **[TensorRT](https://developer.nvidia.com/tensorrt)** 将神经网络高效地部署到嵌入式平台上，利用图优化（graph optimizations），内核融合（kernel fusion）和FP16/INT8等方式提高性能和功率效率。
+
+视觉方面的应用基础模块，主要有用于图像识别的[`imageNet`](c/imageNet.h)，用于对象定位的[`detectNet`](c/detectNet.h)和用于语义分割的[`segNet`](c/segNet.h)，都是从[`tensorNet`](c/tensorNet.h)对象继承的，同时提供了对输入图像和摄像机实时视频流进行处理的示例实现，C++ 和 Python库的参考文档具体参见 **[API Reference](#api-reference)**。
 
 <img src="https://github.com/dusty-nv/jetson-inference/raw/master/docs/images/deep-vision-primitives.png" width="800">
 
-There are multiple tracks of the tutorial that you can choose to follow, including [Hello AI World](#hello-ai-world) for running inference and transfer learning onboard your Jetson, or the full [Two Days to a Demo](#two-days-to-a-demo-digits) tutorial for training on a PC or server with DIGITS.  
+基准测试数据benchmarks, [`Jetson Nano Brings AI Computing to Everyone`](https://devblogs.nvidia.com/jetson-nano-ai-computing/)
+# Deploying Deep Learning
 
-It's recommended to walk through the Hello AI World module first to familiarize yourself with machine learning and inference with TensorRT, before proceeding to training in the cloud with DIGITS.
+这本书的使用上可以按照需求来学习不同的模块，既包括用DIGITS进行模型的训练，也有Jetson平台上开展的推理和板上迁移学习（transfer learning）。
 
 ### Table of Contents
 
@@ -467,3 +469,16 @@ See [Running Segmentation Models on Jetson](docs/segnet-console.md)
 ##
 <p align="center"><sup>© 2016-2019 NVIDIA | </sup><a href="#deploying-deep-learning"><sup>Table of Contents</sup></a></p>
 
+
+术语：
+deep neural networks (DNNs)
+
+训练 training
+
+推理（Inference）
+
+classification
+
+detection
+
+语义分割 Semantic Segmentation
