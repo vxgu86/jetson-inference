@@ -3,9 +3,9 @@
 
 项目中是TensorRT加速的深度学习网络库，可以用来进行图像识别、物体检测定位（边界框进行框定）和语义分割。推理库 (`libjetson-inference`) 是在Jetson平台上编译和执行，并且可以使用C++ 和 Python进行调用。  
 
-Various pre-trained DNN models are automatically downloaded to get you up and running quickly.  It's also setup to accept customized models that you may have trained yourself, including support for Caffe, TensorFlow UFF, and ONNX.
+编译时会自动下载附带的多个预训练DNN模型，当然也可以自定义训练的模型，Caffe、TensorFlow UFF和ONNX格式的都可以。
 
-The latest source can be obtained from [GitHub](http://github.com/dusty-nv/jetson-inference) and compiled onboard Jetson Nano, Jetson TX1/TX2, and Jetson AGX Xavier once they have been [flashed with JetPack](jetpack-setup.md) or setup with the pre-populated [SD card image](https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit#write) for Jetson Nano.
+Jetson Nano, Jetson TX1/TX2, 和 Jetson AGX Xavier在[用JetPack刷机](jetpack-setup.md)后都可以执行代码，其中nano也可以直接用提供的[SD card image](https://developer.nvidia.com/embedded/learn/get-started-jetson-nano-devkit#write)。
 
 ### Quick Reference
 
