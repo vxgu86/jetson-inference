@@ -27,14 +27,14 @@ Below we will go through each step and discuss various build options along the w
  
 ### Cloning the Repo
 
-To download the code, navigate to a folder of your choosing on the Jetson.  First, make sure git and cmake are installed:
+首先安装git 和 cmake
 
 ``` bash
 $ sudo apt-get update
 $ sudo apt-get install git cmake
 ```
 
-Then clone the `jetson-inference` project:
+然后克隆`jetson-inference` :
 
 ``` bash
 $ git clone https://github.com/dusty-nv/jetson-inference
@@ -70,8 +70,7 @@ $ cd build
 $ cmake ../
 ```
 
-> **note**: this command will launch the [`CMakePreBuild.sh`](../CMakePreBuild.sh) script which asks for sudo privileges while installing some prerequisite packages on the Jetson. The script also downloads pre-trained networks from web services.
-
+> **注意**: cmake命令将加载[`CMakePreBuild.sh`](../CMakePreBuild.sh) 脚本，该脚本会请求sudo权限以确认是否已在Jetson上安装了必备软件包，还会从Web上下载一些预训练网络模型快照，需确保micro-SD卡上有足够的空间。
 
 ### Downloading Models
 
@@ -113,9 +112,8 @@ Running these commands will prompt you with the same dialog as seen above.
 
 ### Compiling the Project
 
-Make sure you are still in the `jetson-inference/build` directory, created above in step #3.
+在`jetson-inference/build` 目录中执行`make` 和`sudo make install`来编译库、python扩展绑定extension bindings和代码示例。
 
-Then run `make` followed by `sudo make install` to build the libraries, Python extension bindings, and code samples:
 
 ``` bash
 $ cd jetson-inference/build          # omit if working directory is already build/ from above
@@ -136,7 +134,21 @@ The project will be built to `jetson-inference/build/aarch64`, with the followin
       \lib             where the libraries are build to
 ```
 
-In the build tree, you can find the binaries residing in `build/aarch64/bin/`, headers in `build/aarch64/include/`, and libraries in `build/aarch64/lib/`.  These also get installed under `/usr/local/` during the `sudo make install` step.
+不同的体系结构会编译到不同的目录，armhf或aarch64平台具有以下目录结构：
+
+```
+|-build
+   \aarch64		    (64-bit)
+      \bin			where the sample binaries are built to
+      \include		where the headers reside
+      \lib			where the libraries are build to
+   \armhf           (32-bit)
+      \bin			where the sample binaries are built to
+      \include		where the headers reside
+      \lib			where the libraries are build to
+```
+
+可执行文件在`build/aarch64/bin/`, 头文件在`build/aarch64/include/`, 库文件在 `build/aarch64/lib/`。这些文件在执行`sudo make install`时会安装到`/usr/local/`。
 
 The Python bindings for the [`jetson.inference`](https://rawgit.com/dusty-nv/jetson-inference/python/docs/html/python/jetson.inference.html) and [`jetson.utils`](https://rawgit.com/dusty-nv/jetson-inference/python/docs/html/python/jetson.utils.html) modules also get installed during the `sudo make install` step under `/usr/lib/python*/dist-packages/`.  If you update the code, remember to run it again.
  
